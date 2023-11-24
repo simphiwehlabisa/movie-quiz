@@ -1,59 +1,67 @@
-import React, { Component } from 'react';
+// src/App.js
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import './App.css'; // Import a CSS file for styling
 
-export default class App extends Component {
-    static displayName = App.name;
+function App() {
+    const [quizzes, setQuizzes] = useState([]);
+    const [userAnswers, setUserAnswers] = useState({});
 
-    constructor(props) {
-        super(props);
-        this.state = { forecasts: [], loading: true };
-    }
+    useEffect(() => {
+        axios.get('/api/quiz')
+            .then(response => setQuizzes(response.data))
+            .catch(error => console.error('Error fetching data:', error));
+    }, []);
 
-    componentDidMount() {
-        this.populateWeatherData();
-    }
+    const handleAnswerSelect = (questionId, answerId) => {
+        setUserAnswers(prevAnswers => ({
+            ...prevAnswers,
+            [questionId]: answerId,
+        }));
+    };
 
-    static renderForecastsTable(forecasts) {
-        return (
-            <table className='table table-striped' aria-labelledby="tabelLabel">
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Temp. (C)</th>
-                        <th>Temp. (F)</th>
-                        <th>Summary</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {forecasts.map(forecast =>
-                        <tr key={forecast.date}>
-                            <td>{forecast.date}</td>
-                            <td>{forecast.temperatureC}</td>
-                            <td>{forecast.temperatureF}</td>
-                            <td>{forecast.summary}</td>
-                        </tr>
-                    )}
-                </tbody>
-            </table>
-        );
-    }
+    const handleSubmit = () => {
+        // Process userAnswers, maybe send to the server for evaluation
+        console.log('User Answers:', userAnswers);
+        alert('Answers submitted!'); // Placeholder for actual submission logic
+    };
 
-    render() {
-        let contents = this.state.loading
-            ? <p><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationreact">https://aka.ms/jspsintegrationreact</a> for more details.</em></p>
-            : App.renderForecastsTable(this.state.forecasts);
-
-        return (
-            <div>
-                <h1 id="tabelLabel" >Weather forecast</h1>
-                <p>This component demonstrates fetching data from the server.</p>
-                {contents}
+    return (
+        <div className="app-container">
+            <h1>Quizzes</h1>
+            <div className="quizzes-container">
+                {quizzes.map(quiz => (
+                    <div key={quiz.id} className="quiz-card">
+                        <h2>{quiz.name}</h2>
+                        <ul>
+                            {quiz.questions.map(question => (
+                                <li key={question.id} className="question-card">
+                                    <p>{question.questionText}</p>
+                                    <ul>
+                                        {question.answers.map(answer => (
+                                            <li key={answer.id}>
+                                                <label>
+                                                    <input
+                                                        type="radio"
+                                                        name={`question-${question.id}`}
+                                                        onChange={() => handleAnswerSelect(question.id, answer.id)}
+                                                    />
+                                                    {answer.answerText}
+                                                </label>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                ))}
             </div>
-        );
-    }
-
-    async populateWeatherData() {
-        const response = await fetch('weatherforecast');
-        const data = await response.json();
-        this.setState({ forecasts: data, loading: false });
-    }
+            <button className="submit-button" onClick={handleSubmit}>
+                Submit Answers
+            </button>
+        </div>
+    );
 }
+
+export default App;
