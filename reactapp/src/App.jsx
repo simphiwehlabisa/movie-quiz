@@ -59,15 +59,6 @@ function App() {
         alert(`You scored ${score} out of ${totalQuestions.length}!`);
         setScore(`You scored ${score} out of ${totalQuestions.length}!`);
 
-        // display score in the UI
-
-    
-
-        // if userAnswers === correctAnswerIds, +
-
-        // compare userAnswers to correct answers
-        // calculate score
-        // display score
         
 
     };
