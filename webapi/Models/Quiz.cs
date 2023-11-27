@@ -1,10 +1,16 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace webapi.Models
 {
 
+    [Table("Quiz")]
     public class Quiz
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public List<Question> Questions { get; set; }
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int? id { get; set; }
+        public string name { get; set; }
+        public List<Question> questions { get; set; }
     }
 }

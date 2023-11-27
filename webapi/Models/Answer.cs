@@ -1,9 +1,17 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace webapi.Models
 {
+    [Table("Answer")]
     public class Answer
     {
-        public int Id { get; set; }
-        public string AnswerText { get; set; }
-        public bool IsCorrect { get; set; }
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int? id { get; set; }
+        public string answer { get; set; }
+        public bool isCorrect { get; set; }
+
+        public int questionId { get; set; }
     }
 }

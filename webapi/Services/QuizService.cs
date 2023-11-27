@@ -15,7 +15,7 @@ namespace webapi.Services
 
         public List<Quiz> GetQuizzes()
         {
-            return _context.Quizzes.Include(q => q.Questions).ThenInclude(q => q.Answers).ToList();
+            return _context.Quiz.Include(q => q.questions).ThenInclude(q => q.answers).ToList();
         }
     }
 }

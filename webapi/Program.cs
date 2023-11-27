@@ -29,8 +29,8 @@ using (var scope = app.Services.CreateScope())
 
     try
     {
-        var context = services.GetRequiredService<QuizContext>();
-        DbSeeder.Seed(context);
+        //var context = services.GetRequiredService<QuizContext>();
+        DbSeeder.Seed(services).Wait();
     }
     catch (Exception ex)
     {

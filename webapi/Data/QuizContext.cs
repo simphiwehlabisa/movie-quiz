@@ -12,13 +12,26 @@ namespace webapi.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Quiz>().HasKey(q => q.id);
+            modelBuilder.Entity<Question>().HasKey(q => q.id);
+            modelBuilder.Entity<Answer>().HasKey(q => q.id);
+            modelBuilder.Entity<Quiz>()
+            .HasMany(q => q.questions)
+            .WithOne()
+            .HasForeignKey(q => q.quizId)
+            ;
+
+            // One-to-Many relationship between Question and Answer
+            modelBuilder.Entity<Question>()
+                .HasMany(q => q.answers)
+                .WithOne()
+                .HasForeignKey(a => a.questionId);
         }
 
 
 
-        public DbSet<Quiz> Quizzes { get; set; }
-        public DbSet<Question> Questions { get; set; }
-        public DbSet<Answer> Answers { get; set; }
+        public DbSet<Quiz> Quiz { get; set; }
+        public DbSet<Question> Question { get; set; }
+        public DbSet<Answer> Answer { get; set; }
     }
 }

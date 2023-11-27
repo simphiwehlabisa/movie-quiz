@@ -6,11 +6,13 @@ import './App.css'; // Import a CSS file for styling
 function App() {
     const [quizzes, setQuizzes] = useState([]);
     const [userAnswers, setUserAnswers] = useState({});
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        axios.get('/api/quiz')
-            .then(response => setQuizzes(response.data))
-            .catch(error => console.error('Error fetching data:', error));
+
+        axios.get('api/quiz')
+            .then(response => {setQuizzes(response.data); setLoading(false);console.log(response.data);})
+            .catch(error => {console.error('Error fetching data:', error); setLoading(false);});
     }, []);
 
     const handleAnswerSelect = (questionId, answerId) => {
@@ -25,6 +27,10 @@ function App() {
         console.log('User Answers:', userAnswers);
         alert('Answers submitted!'); // Placeholder for actual submission logic
     };
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
 
     return (
         <div className="app-container">
