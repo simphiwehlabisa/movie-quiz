@@ -30,8 +30,14 @@ export default defineConfig({
         }
     },
     server: {
+        // proxy: {
+        //     '^/weatherforecast': {
+        //         target: 'https://localhost:7122/',
+        //         secure: false
+        //     }
+        // },
         proxy: {
-            '^/weatherforecast': {
+            '^/api/quiz': {
                 target: 'https://localhost:7122/',
                 secure: false
             }
