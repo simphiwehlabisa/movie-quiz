@@ -1,2 +1,4 @@
 <!--  include demo_video.we -->
-(https://www.youtube.com/embed/APOPm01BVrk)
+## Demo Video
+[![Watch the video](video-capture.png)](demo_video.mp4)
+
