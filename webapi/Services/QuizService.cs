@@ -2,18 +2,20 @@ using Microsoft.EntityFrameworkCore;
 using webapi.Data;
 using webapi.Models;
 
-namespace webapi.Services;
-public class QuizService
+namespace webapi.Services
 {
-    private readonly QuizContext _context;
-
-    public QuizService(QuizContext context)
+    public class QuizService : IQuizService
     {
-        _context = context;
-    }
+        private readonly QuizContext _context;
 
-    public List<Quiz> GetQuizzes()
-    {
-        return _context.Quizzes.Include(q => q.Questions).ThenInclude(q => q.Answers).ToList();
+        public QuizService(QuizContext context)
+        {
+            _context = context;
+        }
+
+        public List<Quiz> GetQuizzes()
+        {
+            return _context.Quizzes.Include(q => q.Questions).ThenInclude(q => q.Answers).ToList();
+        }
     }
 }

@@ -1,14 +1,24 @@
-namespace webapi.Data;
+
 using Microsoft.EntityFrameworkCore;
 using webapi.Models;
 
-public class QuizContext : DbContext
+namespace webapi.Data
 {
-    public QuizContext(DbContextOptions<QuizContext> options) : base(options)
+    public class QuizContext : DbContext
     {
-    }
+        public QuizContext(DbContextOptions<QuizContext> options) : base(options)
+        {
+        }
 
-    public DbSet<Quiz> Quizzes { get; set; }
-    public DbSet<Question> Questions { get; set; }
-    public DbSet<Answer> Answers { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
+
+
+
+        public DbSet<Quiz> Quizzes { get; set; }
+        public DbSet<Question> Questions { get; set; }
+        public DbSet<Answer> Answers { get; set; }
+    }
 }

@@ -1,28 +1,37 @@
 {
   "format": 1,
   "restore": {
-    "/Users/simphiweh/devhub/movie-quiz/webapi/webapi.csproj": {}
+    "C:\\dev\\movie-quiz\\webapi\\webapi.csproj": {}
   },
   "projects": {
-    "/Users/simphiweh/devhub/movie-quiz/webapi/webapi.csproj": {
+    "C:\\dev\\movie-quiz\\webapi\\webapi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/simphiweh/devhub/movie-quiz/webapi/webapi.csproj",
+        "projectUniqueName": "C:\\dev\\movie-quiz\\webapi\\webapi.csproj",
         "projectName": "webapi",
-        "projectPath": "/Users/simphiweh/devhub/movie-quiz/webapi/webapi.csproj",
-        "packagesPath": "/Users/simphiweh/.nuget/packages/",
-        "outputPath": "/Users/simphiweh/devhub/movie-quiz/webapi/obj/",
+        "projectPath": "C:\\dev\\movie-quiz\\webapi\\webapi.csproj",
+        "packagesPath": "C:\\Users\\SimphiweH.BELLEQUIPMENT\\.nuget\\packages\\",
+        "outputPath": "C:\\dev\\movie-quiz\\webapi\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "/Users/simphiweh/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\SimphiweH.BELLEQUIPMENT\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\DevExpress 23.1\\DevExtreme\\System\\DevExtreme\\Bin\\AspNetCore": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.devexpress.com/YlzWGfHQ2Xtol8vvTRqxZHAjiRSlkAt7WWQqAaMrieI63OjpOW/api": {},
-          "https://nuget.devexpress.com/YlzWGfHQ2Xtol8vvTRqxZHAjiRSlkAt7WWQqAaMrieI63OjpOW/api": {}
+          "https://nuget.devexpress.com/PGuZNgDsiO3cShcZ7A7SAIuivYbuVbBmjK43Ewj97X7huWVtf1/api": {}
         },
         "frameworks": {
           "net7.0": {
@@ -45,6 +54,10 @@
               "version": "[7.0.11, )"
             },
             "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[7.0.0, )"
             },
@@ -72,7 +85,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -7,10 +7,10 @@ namespace webapi.Controllers;
 [Route("api/[controller]")]
 public class QuizController : ControllerBase
 {
-    private readonly QuizService _quizService;
+    private readonly IQuizService _quizService;
 
 
-    public QuizController(QuizService quizService)
+    public QuizController(IQuizService quizService)
     {
         _quizService = quizService;
     }

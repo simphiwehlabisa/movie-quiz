@@ -1,8 +1,10 @@
-namespace webapi.Models;
-
-public class Quiz
+namespace webapi.Models
 {
-    public int Id { get; set; }
-    public string Name { get; set; }
-    public List<Question> Questions { get; set; }
+
+    public class Quiz
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public List<Question> Questions { get; set; }
+    }
 }

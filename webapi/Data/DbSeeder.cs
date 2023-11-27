@@ -10,7 +10,7 @@ public class DbSeeder
         if (!context.Quizzes.Any())
         {
             // add from json file
-            var json = System.IO.File.ReadAllText("Data/quiz.json");
+            var json = System.IO.File.ReadAllText("Data/quiz-data.json");
             var quizzes = System.Text.Json.JsonSerializer.Deserialize<List<Quiz>>(json);
             context.Quizzes.AddRange(quizzes);
             context.SaveChanges();
